@@ -1,0 +1,58 @@
+{
+  "engineType": "Python",
+  "userStandalone": false,
+  "language": "Python",
+  "name": "simple_restful_serving",
+  "label": "Simple RESTful serving",
+  "program": "simple_restful_serving.py",
+  "modelBehavior": "ModelConsumer",
+  "componentClass": "SimpleRESTfulServing",
+  "group": "Connectors",
+  "useMLOps": true,
+  "inputInfo": [],
+  "outputInfo": [],
+  "arguments": [
+    {
+      "key": "port",
+      "label": "Public IP port",
+      "type": "int",
+      "description": "The IP port that is used for RESTful endpoint",
+      "optional": false,
+      "tag": "public_port"
+    },
+    { "key": "input-model-path",
+      "label": "Model input file",
+      "type": "str",
+      "description": "The model file path",
+      "optional": true,
+      "tag": "input_model_path"
+    },
+    { "key": "__dry_run__",
+      "label": "Dry run [Default: False]",
+      "type": "bool",
+      "description": "Whether to actually run 'uwsgi' and 'nginx' or just prepare the setup",
+      "optional": true
+    },
+    { "key": "log_level",
+      "label": "Logging level [Default: 'info']",
+      "type": "str",
+      "description": "One of: 'noset', 'debug', 'info', 'warning', 'error', 'critical'",
+      "optional": true
+    },
+    { "key": "log_format",
+      "label": "Logging format",
+      "type": "str",
+      "description": "Default: %(asctime)-15s %(levelname)s [%(module)s:%(lineno)d]:  %(message)s",
+      "optional": true
+
+    },
+    {
+      "key": "uwsgi_disable_logging",
+      "label": "Disable uWSGI request logging [Default: True]",
+      "type": "bool",
+      "description": "Disable uWSGI request logging",
+      "optional": true
+    }
+  ],
+  "version": 1
+}
