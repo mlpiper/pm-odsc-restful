@@ -1,6 +1,7 @@
 import argparse
 import logging
 import json
+import time
 
 import numpy as np
 from sklearn.externals import joblib
@@ -43,24 +44,26 @@ class PredictView(FlaskView):
     representations = {'application/json': output_json}
 
     def post(self):
-        print("Got predict")
-        print(request.method)
+        #print("Got predict")
+        #print(request.method)
         model = current_app.config["model"]
         if model is None:
             return {'error': "model is not loaded"}
-        print(request)
-        print(request.content_type)
+        #print(request)
+        #print(request.content_type)
         content = request.get_json(force=True)
         if content is None:
             return {'error': 'content of request is None'}, 404
 
-        print("Content is: {}".format(content))
+        # print("Content is: {}".format(content))
         if "sample" not in content:
             return {'error': "sample key is not found in content"}
 
         sample = content["sample"]
+
+        start = time.time()
         np_sample = np.asarray(sample).reshape(-1, len(sample))
-        print("Sample: {}".format(np_sample))
+        #print("Sample: {}".format(np_sample))
 
         np_pred = model.predict(np_sample)
         np_pred_prob = model.predict_proba(np_sample)[0]
@@ -70,9 +73,11 @@ class PredictView(FlaskView):
 
         list_pred = list(map(float, list_pred))
         list_pred_prob = list(map(float, list_pred_prob))
+        end = time.time()
+        #print("prediction: {}".format(list_pred))
 
-        print("prediction: {}".format(list_pred))
-        return {'prediction': list_pred, "prediction_probability": list_pred_prob}
+        total_time = end - start
+        return {'prediction': list_pred, "prediction_probability": list_pred_prob, "time": total_time}
 
     def shutdown(self):
         shutdown_server()
