@@ -1,5 +1,5 @@
 {
-  "engineType": "Python",
+  "engineType": "RestModelServing",
   "userStandalone": false,
   "language": "Python",
   "name": "sklearn_restful_serving",

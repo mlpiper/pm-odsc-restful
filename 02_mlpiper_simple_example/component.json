@@ -1,10 +1,10 @@
 {
-  "engineType": "Python",
+  "engineType": "RestModelServing",
   "userStandalone": false,
   "language": "Python",
-  "name": "simple_restful_serving",
+  "name": "02_mlpiper_simple_example",
   "label": "Simple RESTful serving",
-  "program": "simple_restful_serving.py",
+  "program": "main.py",
   "modelBehavior": "ModelConsumer",
   "componentClass": "SimpleRESTfulServing",
   "group": "Connectors",
