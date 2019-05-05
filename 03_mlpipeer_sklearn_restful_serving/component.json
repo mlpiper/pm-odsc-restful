@@ -2,7 +2,7 @@
   "engineType": "RestModelServing",
   "userStandalone": false,
   "language": "Python",
-  "name": "sklearn_restful_serving",
+  "name": "03_mlpipeer_sklearn_restful_serving",
   "label": "scikit-learn RESTful serving",
   "program": "sklearn_restful_serving.py",
   "modelBehavior": "ModelConsumer",

@@ -2,7 +2,7 @@
 
 mlpiper --logging-level debug run \
 	--input-model models/xgboost_model_21features_noise_1 \
-	-f pipelines/02_mlpiper_simple_pipeline.json \
+	-f pipelines/03_mlpiper_simple_pipeline.json \
 	-r ./ \
-	-d /tmp/02_example \
+	-d /tmp/03_example \
 	--force
